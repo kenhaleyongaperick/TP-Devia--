@@ -8,8 +8,27 @@
 <body>
     <script>
         const qualf = new String ("Island"); // new String ("")
-        const place = "Park"; // ""; ''; ``
+        const place = "ParkaA"; // ""; ''; ``
         const full = `I wish meet tonight at ${qualf} ${place}`; console.log(full);
+        console.log(place.split(""));
+        console.log(place.slice(0, 3));
+        console.log(place.length, place[place.length -1]);
+        console.log("LowerCase :", place.toLowerCase(), "UpperCase :", place.toUpperCase());
+        console.log(place.indexOf("a"));
+        console.log(place.lastIndexOf("a"));
+        console.log(place.includes("a"));
+        console.log(place.startsWith("Pa"));
+        console.log(place.toLowerCase().startsWith("pa"));
+        console.log(place[0], place.charAt(2));
+        console.log(place.at(1), place.at(-1));
+
+        // const text = "my name is john";
+        // function capitalize(up) {
+
+        // }
+        const age = 18;
+        const verdict = age > 20 ? "majeur" : "mineur";
+        console.log(verdict);
     </script>
 </body>
 </html>
