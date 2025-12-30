@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Name !</title>
+    <meta name="description" content="Add Name 1 !">
+    <style>
+    * {
+        margin:0;
+        padding:0;
+    }
+    form {
+        display: flex;
+        margin: 100px 15% 10px;
+        gap: 15px;
+        height: 50px;
+    }
+    input:focus {
+        outline: none;
+        border: 2.5px solid aqua;
+        box-shadow: 0 0 2.5px aqua;
+    }
+    input {
+        width: 75%;
+        border-radius: 7.5px;
+        padding-left: 1.5%;
+        border: 2.5px solid aqua;
+        padding-right: 1%;
+    }
+    button:hover {
+        box-shadow: 0 0 2.5px rgb(10, 235, 235);
+    }
+    button {
+        background-color:aqua;
+        border-radius: 7.5px;
+        width: 30%;
+        border: .5px solid rgb(10, 235, 235);
+    }
+    #nameAdded {
+        margin: 25px 15%;
+        overflow-y: auto;
+        flex-direction: column;
+        max-height: 325px;
+        padding-right: 2.5px;
+    }
+    #nameAdded::-webkit-scrollbar {
+        width: 5px;
+    }
+    #nameAdded::-webkit-scrollbar-thumb {
+        background-color: indigo;
+        border-radius: 2.5px;
+    }
+    #nameAdded::-webkit-scrollbar-button { display: none; }
+    .student-card {
+        border: 2.5px solid aqua;
+        border-radius: 7.5px;
+        padding: 15px 15px;
+        background-color: #f5f5f5;
+        text-align: left;
+        font-weight: bold;
+        margin-bottom: 7.5px;
+    }
+    @media (min-width: 540px) {
+    form {
+        margin: 100px 12.5% 15px;
+    }
+    #nameAdded {
+        margin: 50px 12.5%;
+        max-height: 325px;
+    }
+    }
+    </style>
+</head>
+<body>
+    <form id="nameForm">
+        <input type="search" pattern="[A-Za-z ]+" 
+       title="Letters Only !" id="studentName" placeholder="Enter a student's name !" required>
+        <button type="submit">Add !</button>
+    </form>
+    <div id="nameAdded"></div>
+    <script>
+        const form = document.getElementById("nameForm");
+        const input = document.getElementById("studentName");
+        const list = document.getElementById("nameAdded");
+        form.addEventListener("submit", function(e) {
+        e.preventDefault();
+        const name = input.value.trim();
+        if (name !== "") {
+        if ([...list.children].some(child => child.textContent.toLowerCase() === name.toLowerCase())) return;
+        list.style.display = "block";
+        const wrap = document.createElement("div");
+        wrap.className = "student-card";
+        wrap.textContent = name;
+        list.appendChild(wrap);
+        input.value = "";
+        }
+    });
+    const notes = [0, 5, 10, 15, 20, 25];
+    console.log(Math.max(...notes));
+    // let noteMin = notes[0];
+    // let noteMax = notes[0];
+    // for (let i=0; i < notes.length; i++) {}
+    //     if (notes[i] < noteMin) {
+    //         noteMin = notes[i];
+    //     }
+    //     if (notes[i] > noteMax) {
+    //         noteMax = notes[i];
+    //     }
+    // }
+    // console.log("La note minimale est : " + noteMin + " !");
+    // console.log("La note maximale est : " + noteMax + " !");
+</script>
+</body>
+</html>
+<!-- const closeBtn = document.createElement("button");
+            closeBtn.textContent = "✖";
+            closeBtn.style.float = "right";
+            closeBtn.style.background = "transparent";
+            closeBtn.style.border = "none";
+            closeBtn.style.cursor = "pointer";
+        closeBtn.addEventListener("click", () => {
+                wrap.remove(); ---
+                wrap.appendChild(closeBtn);
+            }); -->
