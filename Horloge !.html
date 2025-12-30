@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horloge !</title>
+    <meta name="description" content="Horloge !">
+    <style>
+    * {
+        margin:0; padding:0;
+    }
+    body, html {
+        height: 100%;
+        font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+    h1 {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        background: black;
+    }
+    .time-now {
+        color: white;
+        font-size: 50px;
+        text-shadow: .5px .5px 5px aqua;
+    }
+    </style>
+<body>
+    <h1 class="time-now"></h1>
+    <script>
+        const current = document.querySelector(".time-now");
+        setInterval(() => {
+            const now = new Date();
+            const seconds = now.getSeconds();
+            const minutes = now.getMinutes();
+            const hours = now.getHours();
+            current.textContent = Time(hours) + ":" + Time(minutes ) + ":" + Time(seconds);
+        }, 1000);
+        function Time (time) {
+            return time < 10 ? "0" + time : time;
+        }
+    </script>
+</body>
+</html>
