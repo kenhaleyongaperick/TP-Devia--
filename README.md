@@ -1,0 +1,2 @@
+![none](Screenshot 2025-12-31 005239.jpg)
+![Ceci est le visuel concernant l'ajout des noms ! On constate qu'il est impossible de valider un caractére qui n'est pas compris entre A et Z "majuscule ou miniscule".](Screenshot 2025-12-31 005208.jpg)
