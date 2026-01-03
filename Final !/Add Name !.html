@@ -9,7 +9,6 @@
     * {
         margin: 0;
         padding: 0;
-        box-sizing: border-box;
     }
     h1 {
         display: flex;
@@ -25,7 +24,7 @@
         gap: 7.5px;
         display: flex;
         height: 42.5px;
-        margin: 50px 5% 10px;
+        margin: 45px 5% 10px;
         justify-content: center;
     }
     input:focus {
@@ -56,7 +55,7 @@
     #nameAdded {
         margin: 25px 15%;
         overflow-y: auto;
-        max-height: 315px;
+        max-height: 450px;
         padding-right: 5px;
         flex-direction: column;
     }
@@ -82,19 +81,19 @@
         transform: translateX(0);
     }
     .student-card {
-      opacity: 0;
-      display: flex;
-      text-align: left;
-      font-weight: bold;
-      align-items: center;
-      margin-bottom: 7.5px;
-      border-radius: 7.5px;
-      padding: 15.5px 15.5px;
-      border: .5px solid aqua;
-      transform: translateX(-100%);
-      justify-content: space-between;
-      background-color: rgb(250, 250, 250);
-      transition: opacity 0.5s ease, transform 0.5s ease;
+        opacity: 0;
+        display: flex;
+        text-align: left;
+        font-weight: bold;
+        align-items: center;
+        margin-bottom: 7.5px;
+        border-radius: 7.5px;
+        padding: 15.5px 15.5px;
+        border: .5px solid aqua;
+        transform: translateX(-100%);
+        justify-content: space-between;
+        background-color: rgb(250, 250, 250);
+        transition: opacity 0.5s ease, transform 0.5s ease;
     }
     .delete-btn:hover {
         color: red;
@@ -117,6 +116,7 @@
         }
         #nameAdded {
             margin: 50px 9%;
+            max-height: 325px;
         }
     }
   </style>
@@ -180,7 +180,7 @@
 
             namesArray.forEach(nameCard => list.appendChild(nameCard));
 
-            wrap.scrollIntoView({ behavior: "smooth", block: "start" });
+            wrap.scrollIntoView();
 
             input.value = "";
             }
