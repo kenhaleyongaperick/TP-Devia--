@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Add Name !</title>
+    <meta name="description" content="Add Name 1 !"/>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        user-select: none;
+      }
+      h1 {
+        display: flex;
+        font-size: 25px;
+        margin-top: 25px;
+        align-items: center;
+        justify-content: center;
+        text-emphasis-style: "☀";
+        text-emphasis-color: red;
+        font-family: "Courier New", Courier, monospace;
+      }
+      form {
+        gap: 7.5px;
+        display: flex;
+        height: 42.5px;
+        margin: 45px 5% 10px;
+        justify-content: center;
+      }
+      input:focus {
+        outline: none;
+        box-shadow: 0 0 2.5px aqua;
+      }
+      input {
+        width: 50%;
+        padding-right: 1%;
+        padding-left: 1.5%;
+        border-radius: 7.5px;
+        border: 2.5px solid aqua;
+      }
+      body form button:hover {
+        box-shadow: 0 0 2.5px rgb(10, 235, 235);
+      }
+      body form button {
+        width: 25%;
+        font-weight: 700;
+        font-size: 12.5px;
+        border-radius: 7.5px;
+        background-color: aqua;
+        border: 0.5px solid rgb(10, 235, 235);
+      }
+      #nameAdded:hover {
+        overflow-y: auto;
+      }
+      #nameAdded {
+        margin: 25px 15%;
+        overflow-y: auto;
+        max-height: 450px;
+        padding-right: 5px;
+        flex-direction: column;
+      }
+      #nameAdded::-webkit-scrollbar {
+        width: 5px;
+      }
+      #nameAdded::-webkit-scrollbar-track {
+        border-radius: 5px;
+        background-color: #f0f0f0;
+      }
+      #nameAdded::-webkit-scrollbar-thumb {
+        border-radius: 5px;
+        background-color: aqua;
+      }
+      .student-card:hover {
+        box-shadow: 0px 0.5px 2.5px 0px aquamarine;
+      }
+      .student-card:last-child {
+        margin-bottom: 2.5px;
+      }
+      .student-card.added {
+        opacity: 1;
+        transform: translateX(0);
+      }
+      .student-card {
+        opacity: 0;
+        display: flex;
+        /* text-align: left; */
+        font-weight: bold;
+        align-items: center;
+        margin-bottom: 7.5px;
+        border-radius: 7.5px;
+        padding: 15.5px 15.5px;
+        border: 0.5px solid aqua;
+        transform: translateX(-100%);
+        justify-content: space-between;
+        background-color: rgb(250, 250, 250);
+        transition: opacity 0.5s ease, transform 0.5s ease;
+      }
+      .delete-btn:hover {
+        color: red;
+      }
+      .delete-btn {
+        border: none;
+        cursor: pointer;
+        color: tomato;
+        font-size: 15px;
+        font-weight: bold;
+        background-color: transparent;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+      }
+      @media (min-width: 545px) {
+        input {
+          width: 77.5%;
+        }
+        body form button {
+          width: 12.5%;
+        }
+        #nameAdded {
+          margin: 50px 9%;
+          max-height: 500px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Liste de la salle</h1>
+    <form id="nameForm">
+      <input type="search" pattern="[A-Za-z ]+" title="Letters Only !" id="studentName" placeholder="Enter a name !" required/>
+      <button type="submit">AJOUTER</button>
+    </form>
+    <section id="nameAdded"></section>
+    <script>
+
+      const form = document.getElementById("nameForm");
+      const input = document.getElementById("studentName");
+      const list = document.getElementById("nameAdded");
+
+      function capitalize(name) {
+        return name.split(" ").map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join(" "); }
+
+      function verification(name) {
+        [...list.children].some((child) => { return ( child.querySelector("article").textContent.trim().toLowerCase() === formattedNameLower ); }); }
+
+      form.addEventListener("submit", function (withoutReloading) {
+
+        withoutReloading.preventDefault();
+
+        const name = input.value.trim();
+
+        if (name !== "") {
+
+          // const formattedName = name.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join(' ');
+          const formattedName = capitalize(name);
+
+          const formattedNameLower = formattedName.toLowerCase();
+
+          //   const exists = [...list.children].some((child) => {
+          //     return (
+          //       child
+          //         .querySelector("article")
+          //         .textContent.trim()
+          //         .toLowerCase() === formattedNameLower
+          //     );
+          //   });
+          const exists = verification(name); console.log(exists);
+          if (exists) return;
+
+          const wrap = document.createElement("div");
+          wrap.className = "student-card";
+
+          const nameInside = document.createElement("article");
+          nameInside.textContent = formattedName;
+
+          const deleteBtn = document.createElement("button");
+          deleteBtn.className = "delete-btn";
+          deleteBtn.textContent = "X";
+
+          deleteBtn.addEventListener("click", function () {
+            wrap.remove();
+          });
+
+          wrap.appendChild(nameInside);
+          wrap.appendChild(deleteBtn);
+
+          list.appendChild(wrap);
+
+          setTimeout(() => {
+            wrap.classList.add("added");
+          }, 1);
+
+          const studentname = [...list.children];
+
+          studentname.sort((a, b) => a.querySelector("article").textContent.localeCompare(b.querySelector("article").textContent));
+
+          studentname.forEach((nameCard) => list.appendChild(nameCard));
+
+          wrap.scrollIntoView();
+
+          input.value = "";
+        }
+      });
+    </script>
+
+  </body>
+</html>

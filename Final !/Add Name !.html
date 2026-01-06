@@ -9,6 +9,7 @@
     * {
         margin: 0;
         padding: 0;
+        user-select: none;
     }
     h1 {
         display: flex;
@@ -17,7 +18,7 @@
         align-items: center;
         justify-content: center;
         text-emphasis-style: "☀";
-        text-emphasis-color: gold;
+        text-emphasis-color: red;
         font-family:'Courier New', Courier, monospace;
     }
     form {
@@ -116,7 +117,7 @@
         }
         #nameAdded {
             margin: 50px 9%;
-            max-height: 325px;
+            max-height: 500px;
         }
     }
   </style>
@@ -128,15 +129,15 @@
         title="Letters Only !" id="studentName" placeholder="Enter a name !" required>
         <button type="submit">AJOUTER</button>
     </form>
-    <div id="nameAdded"></div>
+    <section id="nameAdded"></section>
     <script>
         
         const form = document.getElementById("nameForm");
         const input = document.getElementById("studentName");
         const list = document.getElementById("nameAdded");
 
-        form.addEventListener("submit", function(e) {
-        e.preventDefault();
+        form.addEventListener("submit", function(withoutReloading) {
+        withoutReloading.preventDefault();
 
         const name = input.value.trim();
 
@@ -147,16 +148,15 @@
             const formattedNameLower = formattedName.toLowerCase();
 
             const exists = [...list.children].some(child => {
-                return child.querySelector("span").textContent.trim().toLowerCase() === formattedNameLower;
+                return child.querySelector("article").textContent.trim().toLowerCase() === formattedNameLower;
             });
-
             if (exists) return;
 
             const wrap = document.createElement("div");
             wrap.className = "student-card";
 
-            const nameSpan = document.createElement("span");
-            nameSpan.textContent = formattedName;
+            const nameInside = document.createElement("article");
+            nameInside.textContent = formattedName;
 
             const deleteBtn = document.createElement("button");
             deleteBtn.className = "delete-btn";
@@ -165,7 +165,7 @@
             deleteBtn.addEventListener('click', function() { wrap.remove();
             });
 
-            wrap.appendChild(nameSpan);
+            wrap.appendChild(nameInside);
             wrap.appendChild(deleteBtn);
 
             list.appendChild(wrap);
@@ -176,7 +176,7 @@
 
             const namesArray = [...list.children];
 
-            namesArray.sort((a, b) => a.querySelector("span").textContent.localeCompare(b.querySelector("span").textContent));
+            namesArray.sort((a, b) => a.querySelector("article").textContent.localeCompare(b.querySelector("article").textContent));
 
             namesArray.forEach(nameCard => list.appendChild(nameCard));
 
