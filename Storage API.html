@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Storage API !</title>
+</head>
+<body>
+    <script>
+        const name = ["a", "ab", "abc", "abcd"];
+        localStorage.setItem("Devia !", JSON.stringify(name));
+        const NEW = localStorage.getItem("Devia !"); console.log(JSON.parse(NEW));
+    </script>
+</body>
+</html>

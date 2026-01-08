@@ -135,6 +135,12 @@
       const input = document.getElementById("studentName");
       const list = document.getElementById("nameAdded");
 
+
+
+      /**
+        * Stylisé le nom entré
+        * @param {string} name
+      */
       function capitalize(name) {
         return name.split(" ").map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join(" "); }
 
