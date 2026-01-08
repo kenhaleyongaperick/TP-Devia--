@@ -1,0 +1,145 @@
+:root {
+  --color-primary: blueviolet;
+  --color-secondary: black;
+  --color-bg: rgb(235, 235, 235);
+  --color-text: black;
+
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 2rem;
+
+  --font-main: 'Segoe UI', sans-serif;
+}
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+}
+body {
+  width: 100%;
+  color: var(--color-text);
+  font-family: var(--font-main);
+  background-color: var(--color-bg);
+}
+img {
+  display: block;
+  max-width: 100%;
+}
+.container {
+  margin: auto;
+  max-width: 1000px;
+  padding: var(--spacing-lg);
+}
+.section {
+  opacity: 0;
+  padding: 5rem 0;
+  transition: all 0.5s ease;
+  transform: translateY(50px);
+}
+.section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.header {
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  position: fixed;
+  background: white;
+  transition: transform 0.5s ease;
+}
+.header.hide {
+  transform: translateY(-100%);
+}
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-list {
+  gap: 1rem;
+  display: flex;
+  list-style: none;
+}
+.nav a {
+  position: relative;
+  text-decoration: none;
+  color: var(--color-secondary);
+}
+.nav a:hover, .nav a.active {
+  color: var(--color-primary);
+}
+.burger {
+  display: none;
+}
+.about-content {
+  gap: 2rem;
+  display: flex;
+  align-items: center;
+}
+.skills-grid {
+  gap: 1rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+.skill-card {
+  padding: 1.5rem;
+  text-align: center;
+  background: white;
+  transition: transform 0.5s;
+}
+.skill-card:hover {
+  transform: translateY(-5px);
+}
+.projects-grid {
+  gap: 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+.project-card {
+  padding: 1rem;
+  position: relative;
+  background: white;
+  transition: transform 0.5s;
+}
+.project-card:hover {
+  transform: scale(1.05);
+}
+form {
+  gap: 0.5rem;
+  display: flex;
+  flex-direction: column;
+}
+input, textarea {
+  padding: 0.5rem;
+}
+button {
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 0.5rem;
+  transition: background 0.5s;
+  background: var(--color-primary);
+}
+button:hover {
+  background: var(--color-primary);
+}
+@media (max-width: 768px) {
+  .about-content {
+    flex-direction: column;
+  }
+  .burger {
+    display: block;
+  }
+  .nav-list {
+    display: none;
+    flex-direction: column;
+  }
+  .nav-list.open {
+    display: flex;
+  }
+}

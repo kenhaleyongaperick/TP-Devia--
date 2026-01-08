@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portfolio | Développeur Web Junior !</title>
+  <link rel="icon" href="Me !.png">
+  <link rel="stylesheet" href="Me !.css"/>
+  <meta name="description" content="Me !"/>
+</head>
+<body>
+<header class="header">
+  <div class="container header-content">
+    <div class="logo">Me !</div>
+    <nav class="nav">
+      <ul class="nav-list">
+        <li><a href="#about">About !</a></li>
+        <li><a href="#skills">Skills !</a></li>
+        <li><a href="#projects">Projects !</a></li>
+        <li><a href="#contact">My Infos !</a></li>
+      </ul>
+      <button class="burger" aria-label="Menu mobile">☰</button>
+    </nav>
+  </div>
+</header>
+<section id="about" class="section about">
+  <div class="container about-content">
+    <div class="about-text">
+      <h1>My name is YNW Melly !</h1>
+      <p>I wanna be great !</p>
+    </div>
+    <div class="about-image">
+      <img src="Me !.png" width="50" height="50" alt="Logo I ain't a pic of me"/>
+    </div>
+  </div>
+</section>
+<section id="skills" class="section skills">
+  <div class="container">
+    <h2>Skills !</h2>
+    <div class="skills-grid">
+      <div class="skill-card">HTML</div>
+      <div class="skill-card">CSS</div>
+      <div class="skill-card">JavaScript</div>
+      <div class="skill-card">GitHub</div>
+    </div>
+  </div>
+</section>
+<section id="projects" class="section projects">
+  <div class="container">
+    <h2>Projects</h2>
+    <div class="filters">
+      <button data-category="all">All</button>
+      <button data-category="web">Web</button>
+      <button data-category="mobile">Mobile</button>
+    </div>
+    <div class="projects-grid" id="projects-container"></div>
+  </div>
+</section>
+<section id="contact" class="section contact">
+  <div class="container">
+    <h2>My Infos !</h2>
+    <form id="contact-form">
+      <input type="text" placeholder="Name :" required/>
+      <input type="email" placeholder="Email :" required/>
+      <textarea placeholder="Message..."></textarea>
+      <button type="submit">Send !</button>
+    </form>
+  </div>
+</section>
+<footer class="footer">
+  <p>© 2026 ! Just Me !</p>
+</footer>
+<script src="Me !.js"></script>
+</body>
+</html>
