@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio | Développeur Web Junior</title>
+    <meta name="description" content="Moi !"/>
+    <link rel="stylesheet" href="Me !.css" />
+</head>
+<body>
+
+  <header class="header" id="header">
+    <div class="container header-content">
+      <div class="logo">Me !</div>
+
+      <nav class="nav">
+
+        <ul class="nav-list">
+          <li><a href="#about">About !</a></li>
+          <li><a href="#skills">SKills !</a></li>
+          <li><a href="#projects">Projects !</a></li>
+          <li><a href="#contact">My Infos !</a></li>
+        </ul>
+
+        <button class="burger" aria-label="Menu mobile">
+          ☰
+        </button>
+
+      </nav>
+    </div>
+  </header>
+
+  <section id="about" class="section about">
+    <div class="container about-content">
+      <div class="about-text">
+        <h1>My Name is Perick !</h1>
+        <p>
+          I wanna be great !
+        </p>
+      </div>
+      <div class="about-image">
+        <img src="Me !.png" width="50px" height="50px" alt="Logo I haven't an image of me"/>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills" class="section skills">
+    <div class="container">
+      <h2>SKills !</h2>
+      <div class="skills-grid">
+        <div class="skill-card">HTML</div>
+        <div class="skill-card">CSS</div>
+        <div class="skill-card">JavaScript</div>
+        <div class="skill-card">Github</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" class="section projects">
+    <div class="container">
+
+      <h2>Projetcs</h2>
+
+      <div class="filters">
+        <button data-category="all">All</button>
+        <button data-category="web">Web</button>
+        <button data-category="mobile">Mobile</button>
+      </div>
+
+      <p id="project-count"></p>
+
+      <div class="projects-grid" id="projects-container"></div>
+    </div>
+  </section>
+
+  <section id="contact" class="section contact">
+    <div class="container">
+      <h2>My Infos !</h2>
+
+      <form id="contact-form" novalidate>
+        <input type="text" id="name" placeholder="Nom" required/>
+
+        <input type="email" id="email" placeholder="Email" required/>
+    
+        <textarea id="message" placeholder="Message"></textarea>
+        <input type="text" id="website" class="honeypot"/>
+
+        <button type="submit">Envoyer</button>
+        <p id="feedback"></p>
+      </form>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>© 2026 Just Me !</p>
+  </footer>
+
+  <script src="Me !.js"></script>
+</body>
+</html>

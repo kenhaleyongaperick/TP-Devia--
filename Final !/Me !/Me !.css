@@ -1,0 +1,181 @@
+:root {
+  --color-primary: blueviolet;
+  --color-secondary: blac;
+  --color-bg: #f9fafb;
+  --color-text: black;
+
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 2rem;
+
+  --font-main: 'Segoe UI', sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-main);
+  color: var(--color-text);
+  background-color: var(--color-bg);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: var(--spacing-lg);
+}
+
+.section {
+  padding: 4rem 0;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.6s ease;
+}
+
+.section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  background: white;
+  z-index: 1000;
+  transition: transform 0.3s ease;
+}
+
+.header.hide {
+  transform: translateY(-100%);
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-list {
+  display: flex;
+  list-style: none;
+  gap: 1rem;
+}
+
+.nav a {
+  text-decoration: none;
+  color: var(--color-secondary);
+  position: relative;
+}
+
+.nav a:hover,
+.nav a.active {
+  color: var(--color-primary);
+}
+
+.burger {
+  display: none;
+}
+
+.about-content {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.skill-card {
+  background: white;
+  padding: 1.5rem;
+  text-align: center;
+  transition: transform 0.3s;
+}
+
+.skill-card:hover {
+  transform: translateY(-5px);
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.project-card {
+  background: white;
+  padding: 1rem;
+  position: relative;
+  transition: transform 0.3s;
+}
+
+.project-card:hover {
+  transform: scale(1.03);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+input,
+textarea {
+  padding: 0.7rem;
+}
+
+button {
+  background: var(--color-primary);
+  color: white;
+  border: none;
+  padding: 0.7rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background: #4338ca;
+}
+
+.error {
+  color: red;
+  font-size: 0.8rem;
+}
+
+.honeypot {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .about-content {
+    flex-direction: column;
+  }
+
+  .burger {
+    display: block;
+  }
+
+  .nav-list {
+    display: none;
+    flex-direction: column;
+  }
+
+  .nav-list.open {
+    display: flex;
+  }
+}
